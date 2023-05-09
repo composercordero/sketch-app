@@ -1,20 +1,20 @@
 const container = document.querySelector('#grid');
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+let output = document.getElementById("demo").textContent += " 16";
 
-output.innerHTML = `${slider.value} x ${slider.value}`;
+const defaultGrid = 16;
 
-slider.oninput = function() {
-    output.innerHTML = `${this.value} x ${this.value}`;
-}
-
-const rows = slider.value;
-const columns = slider.value;
-
-for (let i = 0; i < columns; i++){
-    for (let i = 0; i < rows; i++){
+for (let i = 0; i < defaultGrid; i++){
     const boxes = document.createElement('div');
     boxes.className = "box";
+    boxes.id = i+1 < 9 ? "0" + (i+1) : i+1;
     container.appendChild(boxes);
-}
+    let example = document.querySelectorAll(".box").textContent = `${boxes.id}`;
+    boxes.append(example);
+ }
+
+ function changeGridButton () {
+    let answer = prompt("Enter a number between 1 and 64");
+    if (answer => 1 || answer <= 64){
+        console.log("yes!");
+    }else {console.log("try again")};
  }

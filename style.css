@@ -1,8 +1,11 @@
+/*{    border: solid 1px red;}*/
+
 body {
     display: flex;
     flex-direction: column;
     width: 960px;
     margin: 0 auto;
+
 }
 
 #body{
@@ -37,13 +40,14 @@ button {
     margin: 30px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .box:hover{
     background-color: red;
 }
 
 .box{
-    padding: 20px;
+    padding: 10px;
     border: solid 1px #eaeaea;
 }
 
