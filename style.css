@@ -1,0 +1,30 @@
+#body {
+    width: 960px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px red;
+}
+
+#title{
+    flex: 0 0 100%;
+}
+
+#options{
+    flex-shrink: 0;
+    border: solid 1px red;
+    display: flex;
+    flex-direction: column;
+}
+
+#grid{
+    flex: 1;
+    border: solid 1px red;
+    padding: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid:hover{
+    background-color: red;
+}
