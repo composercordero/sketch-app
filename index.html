@@ -8,23 +8,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="title"><h1>Etch-a-Sketch</h1></div>
+    
     <div id="body">
-        <div id="title"><h1>Etch-a-Sketch</h1></div>
-        
-        <div id="options">
-            <button id="color">Color</button>
-            <button id="randomcolor">Random Color</button>
-            <button id="eraser">Eraser</button>
-            <button id="clear">Clear</button>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="16" class="slider" id="myRange"></div>
-        </div>
 
         <div id="grid"></div>
 
-        <footer></footer>
+        <div id="options">
+            <input type="radio" id="color" name="option" value="black">Black</input>
+
+            <input type="radio" id="random-color" name="option" value="random-color">Random Color</input>
+
+            <input type="radio"id="eraser" name="option" value="eraser">Eraser</input>
+
+            <button id="clear">Clear</button>
+
+            <div class="slide-container">
+                <input type="range" min="1" max="100" value="16" class="slider" id="myRange"></div>
+                <p>Value: <span id="demo"></span></p>
+        </div>
 
     </div>
+
+    <footer>TOP Project: Etch-a-Sketch</footer>
+
     <script type="text/javascript" src="script.js" defer></script>
 </body>
 </html>

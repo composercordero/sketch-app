@@ -1,30 +1,53 @@
-#body {
-    width: 960px;
-    margin: auto;
+body {
     display: flex;
     flex-direction: column;
-    border: solid 1px red;
+    width: 960px;
+    margin: 0 auto;
 }
+
+#body{
+    flex: 1;
+  }
 
 #title{
     flex: 0 0 100%;
+    text-align: center;
+    font-size: 28px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
 }
 
 #options{
     flex-shrink: 0;
-    border: solid 1px red;
     display: flex;
-    flex-direction: column;
+    padding: 16px;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+button {
+    padding: 20px;
 }
 
 #grid{
     flex: 1;
-    border: solid 1px red;
-    padding: 100px;
+    padding: 30px;
+    margin: 30px;
     display: flex;
     flex-wrap: wrap;
 }
-
-.grid:hover{
+.box:hover{
     background-color: red;
+}
+
+.box{
+    padding: 20px;
+    border: solid 1px #eaeaea;
+}
+
+footer{
+    text-align: center;
+    padding: 50px;
 }
