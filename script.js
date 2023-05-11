@@ -1,6 +1,7 @@
 //Variables
 let output = document.getElementById("demo").textContent += " 16";
-// let setCurrentMode = defaultMode;
+let currentMode = 'color';
+let currentSize = 20;
 
 //Buttons
 const colorBtn = document.getElementById('color')
@@ -14,17 +15,32 @@ const DEFAULT_MODE = 'color';
 const DEFAULT_SIZE = 20;
 
 //Event Listeners
-colorBtn.onclick = () => setCurrentMode('color')
-rainbowBtn.onclick = () => setCurrentMode('random')
-eraserBtn.onclick = () => setCurrentMode('eraser')
+colorBtn.onfocus = () => setCurrentMode('color');
+rainbowBtn.onfocus = () => setCurrentMode('random');
+eraserBtn.onfocus = () =>  setCurrentMode('eraser');
 clearBtn.onclick = () => reloadGrid()
 const changeBtn = document.getElementById("changeGrid");
 changeBtn.addEventListener("click", changeGridButton);
 
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
 //Functions
+
 function setCurrentSize(newSize) {
     currentSize = newSize
-  }
+}
+
+function setCurrentMode (mode){
+    if (mode.type === 'mouseover' && !mouseDown) return
+    if (mode === 'random') {
+        currentMode = mode;
+    } else if (mode === 'color') {
+        currentMode = mode;
+    } else if (mode === 'eraser') {
+        currentMode = mode;
+}}
 
 function changeSize(value) {
 setCurrentSize(value);
@@ -55,18 +71,33 @@ function setupGrid(size) {
     for (let i = 0; i < size * size; i++) {
         let box = document.createElement('div');
         box.className = 'box';
-        //   gridElement.addEventListener('mouseover', changeColor)
-        //   gridElement.addEventListener('mousedown', changeColor)
+        box.addEventListener('mouseover', changeColor)
+        box.addEventListener('mousedown', changeColor)
       grid.appendChild(box);
     }
 }
 
- function changeGridButton () {
+function changeColor(e) {
+    if (e.type === 'mouseover' && !mouseDown) return
+    if (currentMode === 'random') {
+        const randomR = Math.floor(Math.random() * 256)
+        const randomG = Math.floor(Math.random() * 256)
+        const randomB = Math.floor(Math.random() * 256)
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    } else if (currentMode === 'color') {
+        e.target.style.backgroundColor = '#333333'
+    } else if (currentMode === 'eraser') {
+        e.target.style.backgroundColor = '#ffffff'
+    }
+  }
+
+function changeGridButton () {
     let answer = prompt("Enter a number between 16 and 48");
     if (answer >= 16 && answer <= 48){
         changeSize(answer);
     }else {alert("try again")};
- }
+}
+
 
  //Window Load
 setupGrid(DEFAULT_SIZE);
